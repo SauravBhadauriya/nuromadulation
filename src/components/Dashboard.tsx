@@ -21,7 +21,7 @@ return(
 
 <div className="flex justify-between items-center">
 
-<h2 className="text-xl font-semibold">
+<h2 className="text-xl font-bold text-[#0056b3]">
 Welcome, Dr. Ankur
 </h2>
 
@@ -29,7 +29,7 @@ Welcome, Dr. Ankur
 
 <AddPatientDialog/>
 
-<Button variant="outline" onClick={logout}>
+<Button variant="outline" onClick={logout} className="bg-white text-[#0056b3] border-[#0056b3] hover:bg-[#004494]">
 Logout
 </Button>
 
@@ -69,7 +69,7 @@ Logout
 <TableCell>OCD</TableCell>
 
 <TableCell>
-<Button variant="outline" onClick={viewProfile}>
+<Button variant="outline" onClick={viewProfile} className="bg-white text-[#0056b3] border-[#0056b3] hover:bg-[#004494]">
 View Profile
 </Button>
 </TableCell>

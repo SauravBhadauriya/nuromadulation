@@ -17,7 +17,7 @@ return(
 <Dialog>
 
 <DialogTrigger asChild>
-<Button>Record Visit</Button>
+<Button className="bg-[#0056B3] hover:bg-[#003d7a] text-white">+ Record Visit</Button>
 </DialogTrigger>
 
 <DialogContent>

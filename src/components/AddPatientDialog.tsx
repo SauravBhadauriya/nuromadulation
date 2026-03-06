@@ -1,64 +1,130 @@
 import {
-Dialog,
-DialogContent,
-DialogHeader,
-DialogTitle,
-DialogTrigger
-} from "@/components/ui/dialog"
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Select,SelectTrigger,SelectValue,SelectContent,SelectItem } from "@/components/ui/select"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+} from "@/components/ui/select";
 
-export default function AddPatientDialog(){
+export default function AddPatientDialog() {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button className="bg-[#0056b3] hover:bg-[#004494]">
+          + Add New Patient
+        </Button>
+      </DialogTrigger>
 
-return(
+      <DialogContent className="max-w-md max-h-[90vh] overflow-y-auto">
+        <DialogHeader>
+          <DialogTitle className="text-[#0056b3] text-xl font-bold">
+            Add New Patient
+          </DialogTitle>
+        </DialogHeader>
 
-<Dialog>
+        <div className="space-y-6">
+          {/* Basic Info Section */}
+          <div className="space-y-3">
+            <h3 className="font-bold text-gray-800">Basic Info</h3>
+            
+            <div className="space-y-1">
+              <label className="text-sm font-bold text-gray-700">Name</label>
+              <Input className="h-10" />
+            </div>
 
-<DialogTrigger asChild>
-<Button>+ Add New Patient</Button>
-</DialogTrigger>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-1">
+                <label className="text-sm font-bold text-gray-700">Age</label>
+                <Input type="number" className="h-10" />
+              </div>
 
-<DialogContent>
+              <div className="space-y-1">
+                <label className="text-sm font-bold text-gray-700">Gender</label>
+                <Select defaultValue="male">
+                  <SelectTrigger className="h-10">
+                    <SelectValue placeholder="Male" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="male">Male</SelectItem>
+                    <SelectItem value="female">Female</SelectItem>
+                    <SelectItem value="other">Other</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
 
-<DialogHeader>
-<DialogTitle>Add New Patient</DialogTitle>
-</DialogHeader>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-1">
+                <label className="text-sm font-bold text-gray-700">Phone</label>
+                <Input className="h-10" />
+              </div>
+              <div className="space-y-1">
+                <label className="text-sm font-bold text-gray-700">Diagnosis</label>
+                <Input className="h-10" />
+              </div>
+            </div>
+          </div>
 
-<div className="grid grid-cols-2 gap-4">
+          {/* Treatment Parameters Section */}
+          <div className="space-y-3">
+            <h3 className="font-bold text-gray-800">Treatment Parameters</h3>
 
-<Input placeholder="Name"/>
+            <div className="grid grid-cols-2 gap-x-4 gap-y-3">
+              <div className="space-y-1">
+                <label className="text-sm font-bold text-gray-700">MT Amplitude</label>
+                <Input className="h-10" />
+              </div>
 
-<Input type="number" placeholder="Age"/>
+              <div className="space-y-1">
+                <label className="text-sm font-bold text-gray-700">Frequency</label>
+                <Input className="h-10" />
+              </div>
 
-<Select>
+              <div className="space-y-1">
+                <label className="text-sm font-bold text-gray-700">Intensity</label>
+                <Input className="h-10" />
+              </div>
 
-<SelectTrigger>
-<SelectValue placeholder="Gender"/>
-</SelectTrigger>
+              <div className="space-y-1">
+                <label className="text-sm font-bold text-gray-700">Trains</label>
+                <Input className="h-10" />
+              </div>
 
-<SelectContent>
-<SelectItem value="male">Male</SelectItem>
-<SelectItem value="female">Female</SelectItem>
-</SelectContent>
+              <div className="space-y-1">
+                <label className="text-sm font-bold text-gray-700">Pulses</label>
+                <Input className="h-10" />
+              </div>
 
-</Select>
+              <div className="space-y-1">
+                <label className="text-sm font-bold text-gray-700">Theta Burst</label>
+                <Select defaultValue="no">
+                  <SelectTrigger className="h-10">
+                    <SelectValue placeholder="No" />
+                  </SelectTrigger>
+                  <SelectContent >
+                    <SelectItem value="no">No</SelectItem>
+                    <SelectItem value="yes">Yes</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+          </div>
 
-<Input placeholder="Phone"/>
-
-<Input placeholder="Diagnosis"/>
-
-</div>
-
-<Button className="w-full mt-4">
-Save Patient
-</Button>
-
-</DialogContent>
-
-</Dialog>
-
-)
-
+          <Button className="w-full bg-[#0056b3] hover:bg-[#004494] text-white py-6 text-lg font-semibold">
+            Save Patient
+          </Button>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
 }
